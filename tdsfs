@@ -1,0 +1,45 @@
+def advance():
+    global window2, label, lbl
+    window2 = tkinter.Tk()
+    window2.attributes('-fullscreen', True)
+    window2.title("Indian Postal Service Bill Calculation")
+    window2['background'] = '#add8e6'
+
+    bt = Button(window2, text="Add new Company", padx=50, pady=20, bg="#123499", fg="white", font="verdana 12")
+    bt.place(x=800, y=400)
+    
+    br = Button(window2, text="Submit", padx=50, pady=20, bg="#123499", fg="white", font="verdana 12")
+    br.place(x=900, y=400)
+
+    bq = Button(window2, text="Exit", padx=50, pady=20, bg="#123499", fg="white", font="verdana 12", command=closed2)
+    bq.place(x=700, y=700)
+
+    bq = Button(window2, text="Back", padx=50, pady=20, bg="#123499", fg="white", font="verdana 12", command=comp_det)
+    bq.place(x=700, y=550)
+    
+    My_label = tkinter.Label(window2, text="Advance Details!", font="verdana 20", bg='#add8e6', fg="#123499", padx=70, pady=30)
+    My_label.place(x=450, y=40)
+    
+    lbl = Label(window2, font=('calibri', 20, 'bold'),
+            background='#add8e6',
+            foreground='#123499')
+    
+    date=datetime.datetime.now()
+    label = Label(window2, text=f"{date:%A, %B %d, %Y}", font=('calibri', 20, 'bold'), bg="#add8e6", fg="#123499")
+    label.place(x=1225,y=50)
+
+    lbl.pack(anchor='ne', text=time())
+    combo=Combobox(window2)
+    combo['values']=("HSBC","HDFC","Axis","ICICI","Hyundai")
+    combo.place(x=400,y=300)
+    window2.mainloop()
+
+def closed2():
+    window1.destroy()
+    label = Label(window2, text="Thank you", font='Verdana 12')
+    label.place(x=735, y=800)
+    window2.after(2000, window2.destroy) 
+
+
+     bt = Button(window, text='Client Side', padx=50, pady=20, bg="#123499", fg="white", font="verdana 12", command=comp_det)
+    bt.place(x=400, y=400)
